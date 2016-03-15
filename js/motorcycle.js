@@ -100,6 +100,7 @@ function createMotorCycle() {
     });
     calculateSpeedGraph(speed, radian);
     calculateRadianGraph(speed, radian);
+    calculateTangentGraph();
 }
 
 function createGround() {
@@ -154,7 +155,7 @@ function calculateRadianGraph(speed, radian) {
         var radianAngle = convertToDegrees(radianLeanAngle);
         radianArray.push(radianAngle);
     }
-    $("graph")
+    $("#graph2").empty();
     drawGraph(radianArray, "radian");
 }
 
@@ -165,7 +166,19 @@ function calculateSpeedGraph(speed, radian) {
         var speedAngle = convertToDegrees(speedLeanAngle);
         speedArray.push(speedAngle);
     }
+    $("#graph").empty();
     drawGraph(speedArray, "speed");
+}
+
+function calculateTangentGraph() {
+    var frictionArray = []
+    for (var i = 0; i < 90; i++) {
+        var rad = convertToRadians(i);
+        var friction = Math.tan(rad);
+        frictionArray.push(friction);
+    }
+    $("#graph3").empty();
+    drawGraph(frictionArray, "friction");
 }
 
 function drawGraph(data, type) {
@@ -207,8 +220,8 @@ function drawGraph(data, type) {
             .text("Speed (mph)");
 
         graph.append("text")
-            .attr("x",  0)
-            .attr("y",  h / 2)
+            .attr("x",  -w / 4)
+            .attr("y",  -h / 4)
             .attr("transform", "rotate(-90)")
             .style("text-anchor", "middle")
             .text("Lean Angle (\xB0)");
@@ -241,14 +254,14 @@ function drawGraph(data, type) {
             .call(xAxis);
 
         graph.append("text")
-            .attr("x",  w/2)
+            .attr("x",  w / 2)
             .attr("y",  h + m[0] / 2)
             .style("text-anchor", "middle")
             .text("Turn Radius (m)");
 
         graph.append("text")
-            .attr("x",  0)
-            .attr("y",  h / 2)
+            .attr("x",  -w / 4)
+            .attr("y",  -h / 4)
             .attr("transform", "rotate(-90)")
             .style("text-anchor", "middle")
             .text("Lean Angle (\xB0)");
@@ -258,6 +271,46 @@ function drawGraph(data, type) {
             .attr("y",  0)
             .style("text-anchor", "middle")
             .text("Turn Radius vs Lean Angle");
+
+        var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
+        graph.append("svg:g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(-25,0)")
+            .call(yAxisLeft);
+
+        graph.append("svg:path").attr("d", line(data));
+    } else if (type == "friction") {
+         var graph = d3.select("#graph3").append("svg:svg")
+            .attr("width", w + m[1] + m[3])
+            .attr("height", h + m[0] + m[2])
+            .append("svg:g")
+            .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+
+        var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+
+        graph.append("svg:g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + h + ")")
+            .call(xAxis);
+
+        graph.append("text")
+            .attr("x",  w / 2)
+            .attr("y",  h + m[0] / 2)
+            .style("text-anchor", "middle")
+            .text("Lean Angle (\xB0)");
+
+        graph.append("text")
+            .attr("x",  -w / 4)
+            .attr("y",  -h / 4)
+            .attr("transform", "rotate(-90)")
+            .style("text-anchor", "middle")
+            .text("Friction");
+
+        graph.append("text")
+            .attr("x",  w / 2)
+            .attr("y",  0)
+            .style("text-anchor", "middle")
+            .text("Friction vs Lean Angle");
 
         var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
         graph.append("svg:g")
