@@ -76,6 +76,7 @@ function render() {
     renderer.render( scene, camera );
     scene.simulate();
 };
+
 function createMotorCycle() {
     lean = calculateLeanAngle(speed, radian);
     angle = convertToDegrees(lean);
@@ -98,6 +99,7 @@ function createMotorCycle() {
         created = true;
     });
     calculateSpeedGraph(speed, radian);
+    calculateRadianGraph(speed, radian);
 }
 
 function createGround() {
@@ -147,28 +149,30 @@ function convertToMPS(mph) {
 
 function calculateRadianGraph(speed, radian) {
     var radianArray = [];
-    for (var i = 0; i < 300; i++) {
+    for (var i = 0; i < 100; i++) {
         var radianLeanAngle = calculateLeanAngle(parseInt(speed), parseInt(i));
         var radianAngle = convertToDegrees(radianLeanAngle);
         radianArray.push(radianAngle);
     }
-    drawGraph(radianArray);
+    $("graph")
+    drawGraph(radianArray, "radian");
 }
 
 function calculateSpeedGraph(speed, radian) {
     var speedArray = [];
-    for (var i = 0; i < 300; i++) {
+    for (var i = 0; i < 100; i++) {
         var speedLeanAngle = calculateLeanAngle(parseInt(i), parseInt(radian));
         var speedAngle = convertToDegrees(speedLeanAngle);
         speedArray.push(speedAngle);
     }
-    drawGraph(speedArray);
+    drawGraph(speedArray, "speed");
 }
 
-function drawGraph(data) {
+function drawGraph(data, type) {
     // define dimensions of graph
     var m = [80, 80, 80, 80]; // margins
-    var w = 1000 - m[1] - m[3]; // width
+    //var w = 1000 - m[1] - m[3]; // width
+    var w = (window.innerWidth / 2) - m[1] - m[3] - m[0] - m[2]; // width
     var h = 400 - m[0] - m[2]; // height
 
     var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
@@ -182,52 +186,87 @@ function drawGraph(data) {
             return y(d);
         })
 
-    var graph = d3.select("#graph").append("svg:svg")
-        .attr("width", w + m[1] + m[3])
-        .attr("height", h + m[0] + m[2])
-        .append("svg:g")
-        .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
+    if (type == "speed") {
+        var graph = d3.select("#graph").append("svg:svg")
+            .attr("width", w + m[1] + m[3])
+            .attr("height", h + m[0] + m[2])
+            .append("svg:g")
+            .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-    var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+        var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
 
-    graph.append("svg:g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + h + ")")
-        .call(xAxis);
+        graph.append("svg:g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + h + ")")
+            .call(xAxis);
 
-    graph.append("text")
-        .attr("x",  w/2)
-        .attr("y",  h + m[0] / 2)
-        .style("text-anchor", "middle")
-        .text("Speed (mph");
+        graph.append("text")
+            .attr("x",  w/2)
+            .attr("y",  h + m[0] / 2)
+            .style("text-anchor", "middle")
+            .text("Speed (mph)");
 
-    graph.append("text")
-        .attr("x",  0)
-        .attr("y",  h / 2)
-        .attr("transform", "rotate(-90)")
-        .style("text-anchor", "middle")
-        .text("Lean Angle (\xB0)");
+        graph.append("text")
+            .attr("x",  0)
+            .attr("y",  h / 2)
+            .attr("transform", "rotate(-90)")
+            .style("text-anchor", "middle")
+            .text("Lean Angle (\xB0)");
 
-    graph.append("text")
-        .attr("x",  w / 2)
-        .attr("y",  0)
-        .style("text-anchor", "middle")
-        .text("Speed vs Lean Angle");
+        graph.append("text")
+            .attr("x",  w / 2)
+            .attr("y",  0)
+            .style("text-anchor", "middle")
+            .text("Speed vs Lean Angle");
 
-    var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
-    graph.append("svg:g")
-        .attr("class", "y axis")
-        .attr("transform", "translate(-25,0)")
-        .call(yAxisLeft);
+        var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
+        graph.append("svg:g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(-25,0)")
+            .call(yAxisLeft);
 
-    graph.append("svg:path").attr("d", line(data));
+        graph.append("svg:path").attr("d", line(data));
+    } else if (type == "radian") {
+         var graph = d3.select("#graph2").append("svg:svg")
+            .attr("width", w + m[1] + m[3])
+            .attr("height", h + m[0] + m[2])
+            .append("svg:g")
+            .attr("transform", "translate(" + m[3] + "," + m[0] + ")");
 
-    var tooltip = d3.select("body")
-        .append("div")
-        .style("position", "absolute")
-        .style("z-index", "10")
-        .style("visibility", "hidden")
-        .text("a simple tooltip");
+        var xAxis = d3.svg.axis().scale(x).tickSize(-h).tickSubdivide(true);
+
+        graph.append("svg:g")
+            .attr("class", "x axis")
+            .attr("transform", "translate(0," + h + ")")
+            .call(xAxis);
+
+        graph.append("text")
+            .attr("x",  w/2)
+            .attr("y",  h + m[0] / 2)
+            .style("text-anchor", "middle")
+            .text("Turn Radius (m)");
+
+        graph.append("text")
+            .attr("x",  0)
+            .attr("y",  h / 2)
+            .attr("transform", "rotate(-90)")
+            .style("text-anchor", "middle")
+            .text("Lean Angle (\xB0)");
+
+        graph.append("text")
+            .attr("x",  w / 2)
+            .attr("y",  0)
+            .style("text-anchor", "middle")
+            .text("Turn Radius vs Lean Angle");
+
+        var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
+        graph.append("svg:g")
+            .attr("class", "y axis")
+            .attr("transform", "translate(-25,0)")
+            .call(yAxisLeft);
+
+        graph.append("svg:path").attr("d", line(data));
+    }
 }
 
 function removeEntity() {
