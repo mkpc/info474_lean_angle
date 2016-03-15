@@ -16,8 +16,6 @@ var windowSizeFactor = 0.5;
 var windowWidth = window.innerWidth * windowSizeFactor;
 var windowHeight = window.innerHeight * windowSizeFactor;
 
-
-
 function initScene() {
     //Renderer
     renderer = new THREE.WebGLRenderer( { alpha: true } );
@@ -94,8 +92,6 @@ function createMotorCycle() {
     //yResult = (180-angle) * Math.PI / 180;;
     yResult = (angle) * Math.PI / 180;
 
-    calculateSpeedGraph(speed, radian);
-
     if (angle < prevAngle) {
         direction = 1;
     } else {
@@ -103,6 +99,7 @@ function createMotorCycle() {
     }
 
     if (!generated) {
+    calculateSpeedGraph(speed, radian);
         generated = true;
         objectLoader.load("img/motor.json",function ( front ) {
             front.name = "Motorcycle";
@@ -227,6 +224,7 @@ function drawGraph(data) {
     graph.append("text")
         .attr("x",  0)
         .attr("y",  h / 2)
+        .attr("transform", "rotate(-90)")
         .style("text-anchor", "middle")
         .text("Lean Angle (\xB0)");
 
