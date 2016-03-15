@@ -17,7 +17,7 @@ function initScene() {
     //Renderer
     renderer = new THREE.WebGLRenderer( { alpha: true } );
     renderer.setClearColor( 0x000000, 0 );
-    renderer.setSize( 500, 500 );
+    renderer.setSize( 400, 400 );
     renderer.shadowMap.enabled = true;
     renderer.shadowMapSoft = true;
     document.getElementById( 'viewport' ).appendChild( renderer.domElement );
@@ -29,7 +29,7 @@ function initScene() {
     //Camera
     camera = new THREE.PerspectiveCamera(
         90,
-        windowWidth / windowHeight,
+        360 / 360,
         1,
         750
     );

@@ -264,6 +264,21 @@ header .header-content .header-content-inner p {
     background-size: cover;
     -o-background-size: cover;
 }
+#assumption{
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    text-align: center;
+    color: #fff;
+    background-image: url(../img/AssumptioBG.jpg);
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+
 #math p {
     color: #fff;
 }
@@ -300,18 +315,16 @@ header .header-content .header-content-inner p {
     color: rgba(255,255,255,.7);
 }
 
+canvas{
+    width: 400px; !important;
+    height: 400px;
+}
 
 @media(min-width:768px) {
-    #physics  {
-        min-height: 100%;
-    }
-    #Result {
-        min-height: 100%;
-    }
-    #math  {
-        min-height: 100%;
-    }
-    #pickTrack  {
+
+
+
+    #math, #pickTrack, #assumption, #Result, #physics   {
         min-height: 100%;
     }
 

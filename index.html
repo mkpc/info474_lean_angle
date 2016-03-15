@@ -28,23 +28,23 @@
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
 
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/creative.css" type="text/css">
-    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.3/css/bootstrap-slider.min.css">
 
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
 
     <!--Qtip CSS-->
     <link rel="stylesheet" href="js/lib/jquery.qtip/jquery.qtip.min.css" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.3/css/bootstrap-slider.min.css">
 
-    <!-- Bootstrap Core JavaScript -->
-    <script rel="js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <link rel="stylesheet" href="css/creative.css" type="text/css">
 
 
     <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script rel="js/bootstrap.js"></script>
 
 </head>
 
@@ -60,11 +60,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand page-scroll" href="#page-top">LEAN ANGLE CALCULATOr</a>
+            <a class="navbar-brand page-scroll" href="#page-top">LEAN ANGLE CALCULATOR</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" data-spy="affix" data-offset-top="205" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a class="page-scroll" href="#physics">Physics</a>
@@ -91,10 +91,80 @@
             <h1>Welcome to motorcycle lean angle calculator</h1>
             <hr>
             <p>Let's learn about the maximum lean angle!</p>
-            <a href="#physics" class="btn btn-primary btn-xl page-scroll">What is the physics behind this?</a>
+            <a href="#assumption" class="btn btn-primary btn-xl page-scroll">What is the physics behind this?</a>
         </div>
     </div>
 </header>
+
+<section id="assumption" >
+    <div class="header-content">
+        <div class="header-content-inner">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="section-heading">Assumptions</h1>
+                    <hr class="primary">
+                    <p>In order to calculate the lean angle from the pure physic perspective, we've made some assumptions to simplify the work.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <section class="no-padding" id="portfolio">
+                <div class="container-fluid">
+                    <div class="row no-gutter">
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="project-category text-faded">
+                                <h3>1. Design of the motorcycle</h3>
+                            </div>
+                            <a href="#" class="portfolio-box">
+                                <img src="img/bikeDesign.jpg" class="img-responsive" alt="">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-name">
+                                            We assume that all the motorcycles are the same, and the frame of the motorcycle does not affect the lean angle.
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="project-category text-faded">
+                                <h3>2. Rider's skill</h3>
+                            </div>
+                            <a href="#" class="portfolio-box">
+                                <img src="img/skill.jpg" class="img-responsive" alt="">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-name">
+                                            Rider's skill does affect the lean angle, and it cannot be calculated, so let's assume rider is skilled!
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="project-category text-faded">
+                                <h3>3. Road condition</h3>
+                            </div>
+                            <a href="#" class="portfolio-box">
+                                <img src="img/RoadCondition.jpg" class="img-responsive" alt="">
+                                <div class="portfolio-box-caption">
+                                    <div class="portfolio-box-caption-content">
+                                        <div class="project-name">
+                                            We assume the road is perfectly made, flat and smooth.
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <a href="#physics" class="btn btn-primary btn-xl wow tada page-scroll">OK, got it!</a>
+            </section>
+        </div>
+    </div>
+
+</section>
 <section id="physics">
     <div class="header-content">
         <div class="header-content-inner">
@@ -102,6 +172,7 @@
                 <div class="col-lg-12 text-center">
                     <h1 class="section-heading">Physics formula</h1>
                     <hr class="light">
+                    <p>Here are two main formula to calculate the lean angle by given the speed and the turn radius</p>
                 </div>
             </div>
         </div>
@@ -114,7 +185,7 @@
                         <p class="text-light">$$F_f = m{v^2 \over R}$$</p>
                         <p class="text-light"><i class="fa fa-2x fa-angle-down   text-light"></i>$$\mu N = \mu mg = m{v^2 \over R}$$</p>
                         <i class="fa fa-2x fa-angle-down   text-light"></i>
-                        <h2 class="text-light">$$\mu = {v^2 \over gR}$$</h2>
+                        <h3 class="text-light">$$\mu = {v^2 \over gR}$$</h3>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 text-center">
@@ -125,7 +196,7 @@
                         <p class="text-light"><i class="fa fa-2x fa-angle-down   text-light"></i>$$g \sin \theta = {v^2 \over r} \cos \theta$$</p>
                         <p class="text-light"><i class="fa fa-2x fa-angle-down   text-light"></i>$${\sin \theta \over \cos \theta} = \tan \theta = {v^2 \over rg}$$</p>
                         <i class="fa fa-2x fa-angle-down   text-light"></i>
-                        <h2 class="text-light">$$\tan \theta = \mu $$</h2>
+                        <h3 class="text-light">$$\tan \theta = \mu $$</h3>
                     </div>
                 </div>
                 <a href="#Result" class="btn btn-primary btn-xl wow tada page-scroll">What does that means ?</a>
@@ -133,7 +204,6 @@
         </div>
     </div>
 </section>
-
 <section id="Result" >
     <div class="header-content">
         <div class="header-content-inner">
@@ -141,6 +211,7 @@
                 <div class="col-lg-12 text-center">
                     <h1 class="section-heading">Take Aways Form Formula</h1>
                     <hr class="primary">
+                    <p>Here are some observations that take away from both formulas </p>
                 </div>
             </div>
         </div>
@@ -150,7 +221,7 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
                         <h3>Tighter Turn</h3>
-                        <p class="text-muted">Tighter turn means you will have gteater lean angle !</p>
+                        <p class="text-muted">Tighter turn means you will lean more or slower your speed to take the turn !</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 text-center">
@@ -164,7 +235,7 @@
                     <div class="service-box">
                         <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
                         <h3>Static Friction Coefficient</h3>
-                        <p class="text-muted">Based on the formula, friction coefficient can up to 1.7! </p>
+                        <p class="text-muted">Based on the formula, friction coefficient can up to 1.7 ! </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-3 text-center">
@@ -194,19 +265,26 @@
         </div>
         <div class="container">
             <div class="row text-center">
-                <img id="map" height="500" align="center" usemap="#trackmap" width="auto" src="img/track.png">
-                <map name="trackmap" id="ImageMapsCom-image-maps-2016-03-12-180608">
-                    <area ng-click="func(376,79)" id="curve4" alt="Curve4 <br> Turn radius : 376 feet<br> Average speed : 79 MPH " class="area" shape="rect" coords="433,162,538,289" />
-                    <area ng-click="func(109.44,46)"id="curve5" alt="Curve5<br> Turn radius : 109.44 feet<br> Average speed : 46 MPH " class="area" shape="rect" coords="237,350,343,484" />
-                </map>
-            </div>
-            <h3>Selected turn has {{radianFeet}} Feet</h3>
-            <h3>The average speed of this turn is {{speedMPH}} MPH!</h3>
-            <h3>The maximum lean angle for this turn is </h3><h1>{{total()}} &#176;</h1>
-            <br>
+                <div class="col-lg-6">
+                    <img id="map" height="500" align="center" usemap="#trackmap" width="auto" src="img/track.png">
+                    <map name="trackmap" id="ImageMapsCom-image-maps-2016-03-12-180608">
+                        <area ng-click="func(376,79)" id="curve4" alt="Curve4 <br> Turn radius : 376 feet<br> Average speed : 79 MPH " class="area" shape="rect" coords="433,162,538,289" />
+                        <area ng-click="func(109.44,46)"id="curve5" alt="Curve5<br> Turn radius : 109.44 feet<br> Average speed : 46 MPH " class="area" shape="rect" coords="237,350,343,484" />
+                    </map>
+                </div>
+                <div class="col-lg-6">
+                    <h3>Selected turn has {{radianFeet}} Feet</h3>
+                    <h3>The average speed of this turn is {{speedMPH}} MPH!</h3>
+                    <h3>The maximum lean angle for this turn is </h3><h1>{{total()}} &#176;</h1>
+                    <br>
 
-            <a href="#math" class="btn btn-primary btn-xl wow tada page-scroll">Click here to manually input Speed and Turn radius !</a>
+
+                    <a href="#math" class="btn btn-primary btn-xl wow tada page-scroll">Click here to manually input Speed and Turn radius !</a>
+                </div>
+            </div>
         </div>
+
+    </div>
     </div>
 </section>
 <section id="math" >
@@ -216,6 +294,7 @@
                 <div class="col-lg-12 text-center">
                     <h1 class="section-heading">Let Set the speed and the turn radius first </h1>
                     <hr class="primary">
+                    <p>You can change speed or the turn radius by adjust the slider</p>
                 </div>
             </div>
         </div>
@@ -224,10 +303,9 @@
                 <div class="col-lg-4 col-md-6 text-center">
                     <div class="service-box">
                         <h3>Speed Gauge</h3>
-                        <div id="gauge" class="text-center" style="width:300px; height:250px"></div>
+                        <div id="gauge" style="width:300px; height:250px"></div>
                         <h3>{{speedMPH}} MPH</h3>
-                        <input id="spd" data-slider-id='spdSld' ng-model="speedMPH"  ng-init="speedMPH = '50'" type="text" data-slider-min="1" data-slider-max="200" data-slider-step="1" data-slider-value="1">
-                        <!--<p class="text-muted">Tighter turn means you will have gteater lean angle !</p>-->
+                        <input id="spd" data-slider-id='spdSld' ng-model="speedMPH"  ng-init="speedMPH = '79'" type="text" data-slider-min="1" data-slider-max="200" data-slider-step="1" data-slider-value="1">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
@@ -237,180 +315,35 @@
                             <circle cx="125" cy="125" r="{{radianSvg()}}" stroke="black" fill="rgba(240,95,64,.9)" stroke-width="1" />
                         </svg>
                         <h3>{{radianFeet}} Feet</h3>
-                        <input id="rad" data-slider-id='radSld' ng-model="radianFeet"ng-init="radianFeet = '100'" type="text" data-slider-min="1" data-slider-max="1000" data-slider-step="1" data-slider-value="1">
+                        <input id="rad" data-slider-id='radSld' ng-model="radianFeet"ng-init="radianFeet = '376'" type="text" data-slider-min="1" data-slider-max="500" data-slider-step="1" data-slider-value="1">
                         <!--<p class="text-muted">Faster speed means you have to lean more !</p>-->
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 text-center">
-                        <h1>Lean Angle: {{total()}} &#176;</h1>
+                    <h3>Lean Angle: {{total()}} &#176;</h3>
                     <div id="viewport"></div>
+
+
                 </div>
             </div>
             <br>
             <a id="search" href="#animation" class="btn btn-primary btn-xl ">Let's see the simulation !</a>
+            <a href="#graphs" class="btn btn-default btn-xl wow tada page-scroll">Let's see the graphs !</a>
             <!--<a href="#takeAways" class="btn btn-primary btn-xl wow tada page-scroll">What does that means ?</a>-->
         </div>
     </div>
 </section>
 
-<!--<section id="animation" >-->
-    <!--<div class="header-content">-->
-        <!--<div class="header-content-inner">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-12 text-center">-->
-                    <!--<h1 class="section-heading">Let Set the speed and the turn radius first </h1>-->
-                    <!--<hr class="primary">-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-        <!--<div class="container">-->
-            <!--<div class="row">-->
-                <!--<div class="col-lg-4 col-md-6 text-center">-->
-                    <!--<div class="service-box">-->
-                        <!--<h3>Speed Gauge</h3>-->
-                        <!--<div id="gauge" class="text-center" style="width:300px; height:250px"></div>-->
-                        <!--<h3>{{speedMPH}} MPH</h3>-->
-                        <!--<input id="spd" data-slider-id='spdSld' ng-model="speedMPH"  ng-init="speedMPH = '50'" type="text" data-slider-min="1" data-slider-max="200" data-slider-step="1" data-slider-value="1">-->
-                        <!--&lt;!&ndash;<p class="text-muted">Tighter turn means you will have gteater lean angle !</p>&ndash;&gt;-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-lg-4 col-md-6 text-center">-->
-                    <!--<div class="service-box">-->
-                        <!--<h3>Turn Radius</h3>-->
-                        <!--<svg height="250" width="250">-->
-                            <!--<circle cx="125" cy="125" r="{{radianSvg()}}" stroke="black" fill="rgba(240,95,64,.9)" stroke-width="1" />-->
-                        <!--</svg>-->
-                        <!--<h3>{{radianFeet}} Feet</h3>-->
-                        <!--<input id="rad" data-slider-id='radSld' ng-model="radianFeet"ng-init="radianFeet = '100'" type="text" data-slider-min="1" data-slider-max="1000" data-slider-step="1" data-slider-value="1">-->
-                        <!--&lt;!&ndash;<p class="text-muted">Faster speed means you have to lean more !</p>&ndash;&gt;-->
-                    <!--</div>-->
-                <!--</div>-->
-                <!--<div class="col-lg-4 col-md-6 text-center">-->
-                    <!--<h1>Lean Angle: {{total()}} &#176;</h1>-->
-                <!--</div>-->
-            <!--</div>-->
-            <!--<br>-->
-            <!--<a id="search" class="btn btn-primary btn-xl ">Let's see the simulation !</a>-->
-            <!--&lt;!&ndash;<a href="#takeAways" class="btn btn-primary btn-xl wow tada page-scroll">What does that means ?</a>&ndash;&gt;-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</section>-->
-
-<!--<section class="no-padding" id="portfolio">-->
-<!--<div class="container-fluid">-->
-<!--<div class="row no-gutter">-->
-<!--<div class="col-lg-4 col-sm-6">-->
-<!--<div href="#" class="portfolio-box">-->
-<!--<img src="img/portfolio/1.jpg" class="img-responsive" alt="">-->
-<!--<div class="portfolio-box-caption">-->
-<!--<div class="portfolio-box-caption-content">-->
-<!--<div class="project-category text-faded">-->
-<!--Category-->
-<!--</div>-->
-<!--<div class="project-name">-->
-<!--Project Name-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--<div class="col-lg-4 col-sm-6">-->
-<!--<a href="#" class="portfolio-box">-->
-<!--<img src="img/portfolio/2.jpg" class="img-responsive" alt="">-->
-<!--<div class="portfolio-box-caption">-->
-<!--<div class="portfolio-box-caption-content">-->
-<!--<div class="project-category text-faded">-->
-<!--Category-->
-<!--</div>-->
-<!--<div class="project-name">-->
-<!--Project Name-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</a>-->
-<!--</div>-->
-<!--<div class="col-lg-4 col-sm-6">-->
-<!--<a href="#" class="portfolio-box">-->
-<!--<img src="img/portfolio/3.jpg" class="img-responsive" alt="">-->
-<!--<div class="portfolio-box-caption">-->
-<!--<div class="portfolio-box-caption-content">-->
-<!--<div class="project-category text-faded">-->
-<!--Category-->
-<!--</div>-->
-<!--<div class="project-name">-->
-<!--Project Name-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</a>-->
-<!--</div>-->
-<!--<div class="col-lg-4 col-sm-6">-->
-<!--<a href="#" class="portfolio-box">-->
-<!--<img src="img/portfolio/4.jpg" class="img-responsive" alt="">-->
-<!--<div class="portfolio-box-caption">-->
-<!--<div class="portfolio-box-caption-content">-->
-<!--<div class="project-category text-faded">-->
-<!--Category-->
-<!--</div>-->
-<!--<div class="project-name">-->
-<!--Project Name-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</a>-->
-<!--</div>-->
-<!--<div class="col-lg-4 col-sm-6">-->
-<!--<a href="#" class="portfolio-box">-->
-<!--<img src="img/portfolio/5.jpg" class="img-responsive" alt="">-->
-<!--<div class="portfolio-box-caption">-->
-<!--<div class="portfolio-box-caption-content">-->
-<!--<div class="project-category text-faded">-->
-<!--Category-->
-<!--</div>-->
-<!--<div class="project-name">-->
-<!--Project Name-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</a>-->
-<!--</div>-->
-<!--<div class="col-lg-4 col-sm-6">-->
-<!--<a href="#" class="portfolio-box">-->
-<!--<img src="img/portfolio/6.jpg" class="img-responsive" alt="">-->
-<!--<div class="portfolio-box-caption">-->
-<!--<div class="portfolio-box-caption-content">-->
-<!--<div class="project-category text-faded">-->
-<!--Category-->
-<!--</div>-->
-<!--<div class="project-name">-->
-<!--Project Name-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</a>-->
-<!--</div>-->
-<!--</div>-->
-<!--</div>-->
-<!--</section>-->
-
-<!--<aside class="bg-dark">-->
-<!--<div class="container text-center">-->
-<!--<div class="call-to-action">-->
-<!--<h2>Free Download at Start Bootstrap!</h2>-->
-<!--<a href="#" class="btn btn-default btn-xl wow tada">Download Now!</a>-->
-<!--</div>-->
-<!--</div>-->
-<!--</aside>-->
 <section id="graphs">
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 text-center">
                 <H1>Speed vs Lean Angle</H1>
-                <div id="graph"></div>
+                <div class="graph" id="graph"></div>
             </div>
             <div class="col-lg-6 col-md-6 text-center">
                 <H1>Turn Radius vs Lean Angle</H1>
-                <div id="graph2"></div>
+                <div class="graph" id="graph2"></div>
             </div>
         </div>
         <div class="row">
@@ -418,7 +351,7 @@
             </div>
             <div class="col-lg-8 col-md-6 text-center">
                 <H1>Friction vs Lean Angle</H1>
-                <div id="graph3"></div>
+                <div  class="graph" id="graph3"></div>
             </div>
         </div>
     </div>
@@ -461,8 +394,9 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 <script src="js/lib/angular.min.js"></script>
 
 <!--gage-->
-<script src="js/lib/justgage.1.0.1.min.js"></script>
+
 <script src="js/lib/raphael.2.1.0.min.js"></script>
+<script src="js/lib/justgage.1.0.1.min.js"></script>
 
 <!--slider-->
 <script src=" https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/6.1.3/bootstrap-slider.min.js"></script>
@@ -483,14 +417,20 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 <script src="js/lib/Three.js"></script>
 <script src="js/lib/physi.js"></script>
 <script src="js/lib/d3.min.js"></script>
-<script src="js/lib/babylon.js"></script>
 <script src="js/lib/cannon.js"></script>
 <script src="js/lib/oimo.js"></script>
 <script src="js/app.js"></script>
 <script src="js/motorcycle.js"></script>
 <!--Custom Theme JavaScript-->
+<<<<<<< Updated upstream
     
     
+=======
+
+
+
+
+>>>>>>> Stashed changes
 </body>
 
 </html>

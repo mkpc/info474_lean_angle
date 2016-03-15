@@ -25,11 +25,12 @@ var g = new JustGage({
     shadowSize: 0.5,
     hideValue:true,
     customSectors: [{
+        //color : "#FFFFFF",
         color : "rgba(240,95,64,.9)",
         lo : 0,
         hi : 200
     }],
-    levelColorsGradient: false,
+    levelColorsGradient: true,
     titleFontColor:"#FFFFFF",
     titleFontFamily: "Sniglet",
     valueFontColor:"#ffffff",

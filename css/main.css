@@ -1,4 +1,8 @@
-path {
+path{
+  stroke-width: 5;
+}
+
+.graph path {
 	stroke: steelblue;
 	stroke-width: 1;
 	fill: none;
