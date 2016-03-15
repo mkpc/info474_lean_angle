@@ -9,9 +9,6 @@ var angle = 0;
 
 var objectLoader;
 var yResult = 0;
-var prevAngle = 0;
-var direction = 0;
-var generated = false;
 var windowSizeFactor = 0.5;
 var windowWidth = window.innerWidth * windowSizeFactor;
 var windowHeight = window.innerHeight * windowSizeFactor;
@@ -72,11 +69,7 @@ function render() {
                 if ((scene.children[i].rotation.y > yResult - 0.05  && scene.children[i].rotation.y < yResult + 0.05)) {
                     created = false;
                 }
-                if (direction == 0) {
-                    scene.children[i].rotation.y = scene.children[i].rotation.y + (yResult / 120);
-                } else if (direction == 1) {
-                    scene.children[i].rotation.y = scene.children[i].rotation.y - (yResult / 120);
-                }
+                scene.children[i].rotation.y = scene.children[i].rotation.y + (yResult / 120);
             }
         }
     }
@@ -85,39 +78,26 @@ function render() {
 };
 function createMotorCycle() {
     lean = calculateLeanAngle(speed, radian);
-    //if (convertToDegrees(lean) != 0) {
-    prevAngle = angle;
     angle = convertToDegrees(lean);
     objectLoader = new THREE.ObjectLoader();
     //yResult = (180-angle) * Math.PI / 180;;
     yResult = (angle) * Math.PI / 180;
-
-    if (angle < prevAngle) {
-        direction = 1;
-    } else {
-        direction = 0;
-    }
-
-    if (!generated) {
+        
+    objectLoader.load("img/motor.json",function ( front ) {
+        front.name = "Motorcycle";
+        front.scale.x = 0.03;
+        front.scale.y = 0.03;
+        front.scale.z = 0.03;
+        front.rotation.x = -90 * Math.PI / 180;
+        front.rotation.z = -180 * Math.PI / 180;
+        //front.rotation.y = (180-angle) * Math.PI / 180;
+        //front.rotation.y = (angle) * Math.PI / 180
+        front.position.set(0, 0, 0);
+        front.isMotorcycle = true;
+        scene.add( front );
+        created = true;
+    });
     calculateSpeedGraph(speed, radian);
-        generated = true;
-        objectLoader.load("img/motor.json",function ( front ) {
-            front.name = "Motorcycle";
-            front.scale.x = 0.03;
-            front.scale.y = 0.03;
-            front.scale.z = 0.03;
-            front.rotation.x = -90 * Math.PI / 180;
-            front.rotation.z = -180 * Math.PI / 180;
-            //front.rotation.y = (180-angle) * Math.PI / 180;
-            //front.rotation.y = (angle) * Math.PI / 180
-            front.position.set(0, 0, 0);
-            front.isMotorcycle = true;
-            scene.add( front );
-            created = true;
-        });
-    }
-    console.log("create");
-    //}
 }
 
 function createGround() {
@@ -250,7 +230,17 @@ function drawGraph(data) {
         .text("a simple tooltip");
 }
 
+function removeEntity() {
+    for (var i = scene.children.length - 1; i >= 0 ; i -- ) {
+        var obj = scene.children[ i ];
+        if (obj.isMotorcycle) {
+            scene.remove(obj);
+        }
+    }
+}
+
 $("#search").click(function() {
+    removeEntity();
     createMotorCycle();
     created = true;
 });
