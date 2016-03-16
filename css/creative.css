@@ -291,6 +291,20 @@ header .header-content .header-content-inner p {
     -o-background-size: cover;
 }
 
+#graphs2{
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    text-align: center;
+    color: #fff;
+    background-image: url(../img/lastBG.jpg);
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
 
 #math p {
     color: #fff;
