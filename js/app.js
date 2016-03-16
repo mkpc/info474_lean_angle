@@ -61,6 +61,7 @@ app.controller('myCtrl', function($scope) {
     $scope.func=function(feet, speed){
         $scope.radianFeet = feet;
         $scope.speedMPH = speed;
+        $scope.frictionNumber = 2;
     };
     $scope.radianSvg =function() {
         return parseInt($scope.radianFeet/10);

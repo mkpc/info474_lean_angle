@@ -156,7 +156,6 @@ function calculateRadianGraph(speed, radian) {
         radianArray.push(radianAngle);
     }
     $("#graph2").empty();
-    console.log(radianArray);
     drawGraph(radianArray, "radian");
 }
 
@@ -186,7 +185,7 @@ function drawGraph(data, type) {
     // define dimensions of graph
     var m = [80, 80, 80, 80]; // margins
     //var w = 1000 - m[1] - m[3]; // width
-    var w = (window.innerWidth / 2) - m[1] - m[3] - m[0] - m[2] ; // width
+    var w = (window.innerWidth / 2 ) - m[1] - m[3] - m[0] - m[2] ; // width
     var h = 400 - m[0] - m[2]; // height
 
     var x = d3.scale.linear().domain([0, data.length]).range([0, w]);
