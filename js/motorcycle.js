@@ -150,12 +150,13 @@ function convertToMPS(mph) {
 
 function calculateRadianGraph(speed, radian) {
     var radianArray = [];
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 300; i++) {
         var radianLeanAngle = calculateLeanAngle(parseInt(speed), parseInt(i));
         var radianAngle = convertToDegrees(radianLeanAngle);
         radianArray.push(radianAngle);
     }
     $("#graph2").empty();
+    console.log(radianArray);
     drawGraph(radianArray, "radian");
 }
 
