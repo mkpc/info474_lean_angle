@@ -348,10 +348,7 @@ canvas{
 }
 
 @media(min-width:768px) {
-
-
-
-    #math, #pickTrack, #assumption, #Result, #physics, #graphs   {
+    #math, #pickTrack, #assumption, #Result, #physics, #graphs, #graphs2   {
         min-height: 100%;
     }
 

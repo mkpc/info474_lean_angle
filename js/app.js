@@ -5,6 +5,7 @@ var speed = 0;
 var lean = 0;
 var radian = 0;
 var needToLean = false;
+var friction;
 
 $('#spd').slider({
     tooltip:"hide",
@@ -54,14 +55,14 @@ app.controller('myCtrl', function($scope) {
 
         speed = convertToMPS(parseFloat($scope.speedMPH));
         radian = convertToMeter(parseFloat($scope.radianFeet));
-
+        $scope.frictionNumber = ((Math.pow(speed, 2)) / (9.81 * radian)).toFixed(2);
         leanAngle = (Math.atan((Math.pow(speed ,2)/(9.8*radian)))* 180 / Math.PI).toFixed(2);
         return leanAngle ;
     };
     $scope.func=function(feet, speed){
         $scope.radianFeet = feet;
         $scope.speedMPH = speed;
-        $scope.frictionNumber = 2;
+        $scope.frictionNumber = ((Math.pow(convertToMPS(speed)), 2) / (9.81 * convertToMeter(feet))).toFixed(2);
     };
     $scope.radianSvg =function() {
         return parseInt($scope.radianFeet/10);

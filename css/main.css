@@ -28,12 +28,12 @@
   stroke: #eee;
 }
 
-.x.axis {
-	fill: black;
+.x.axis, .side-label {
+	fill: rgba(255,255,255,.7);
 }
 
 .y.axis {
-	fill: black;
+	fill: rgba(255,255,255,.7);
 }
 
 @media (max-height: 900px ) {

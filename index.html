@@ -66,9 +66,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" data-spy="affix" data-offset-top="205" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                 <li>
-                    <a class="page-scroll" href="#">Home</a>
-                </li>
+
                  <li>
                     <a class="page-scroll" href="#assumption">Assumptions</a>
                 </li>
@@ -348,31 +346,52 @@
 </section>
 
 <section id="graphs">
+     <div class="header-content">
+        <div class="header-content-inner">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="section-heading">Speed, turn radius and lean angle Graph</h1>
+                    <hr class="primary">
+                    <p>We created these graphs to show the relation between speed, turn radius, lean angle and friction. </p>
+                </div>
+            </div>
+        </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-6 col-md-6 text-center">
-                <H1>Speed vs Lean Angle</H1>
-                <h4>Turn radius at {{radianFeet}} Feet</h4>
+                <H4>Speed vs Lean Angle</H4>
+                <p class="text-faded"> Turn radius at {{radianFeet}} Feet</p>
                 <div class="graph" id="graph"></div>
             </div>
             <div class="col-lg-6 col-md-6 text-center">
-                <H1>Turn Radius vs Lean Angle</H1>
-                <h4>Speed at {{speedMPH}} MPH</h4>
+                <H4>Turn Radius vs Lean Angle</H4>
+                <p class="text-faded">Speed at {{speedMPH}} MPH</p>
                 <div class="graph" id="graph2"></div>
             </div>
         </div>
     </div>
+</div>
 </section>
 
 <section id="graphs2">
+         <div class="header-content">
+        <div class="header-content-inner">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1 class="section-heading">Friction vs lean angle graph</h1>
+                    <hr class="primary">
+                    <p>From this graph, we can see starting from 60 degree, the coefficient of friction will become unrealistic large, which make the lean angle impossible to achieve in the real world. </p>
+                </div>
+            </div>
+        </div>
     <div class="container">
         <div class="row">
             <div class="col-lg-offset-2 col-lg-8 col-md-6 text-center">
-                <H1>Friction vs Lean Angle</H1>
                 <h4>Current Friction at {{frictionNumber}}</h4>
                 <div  class="graph" id="graph3"></div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 

@@ -13,6 +13,7 @@ var windowSizeFactor = 0.5;
 var windowWidth = window.innerWidth * windowSizeFactor;
 var windowHeight = window.innerHeight * windowSizeFactor;
 
+
 function initScene() {
     //Renderer
     renderer = new THREE.WebGLRenderer( { alpha: true } );
@@ -127,7 +128,7 @@ function createGround() {
 }
 
 function calculateLeanAngle(speed, radian) {
-    var friction = (Math.pow(speed, 2)) / (9.81 * radian);
+     friction = (Math.pow(speed, 2)) / (9.81 * radian);
     var answer = Math.atan(friction);
     return answer;
 }
@@ -217,20 +218,21 @@ function drawGraph(data, type) {
             .attr("x",  w/2)
             .attr("y",  h + m[0] / 2)
             .style("text-anchor", "middle")
-            .text("Speed (mph)");
+            .text("Speed(mph)")
+            .attr("class","side-label");
 
         graph.append("text")
             .attr("x",  -w / 4)
             .attr("y",  -h / 4)
             .attr("transform", "rotate(-90)")
             .style("text-anchor", "middle")
-            .text("Lean Angle (\xB0)");
+            .text("Lean Angle (\xB0)")
+            .attr("class","side-label");
 
-        graph.append("text")
-            .attr("x",  w / 2)
-            .attr("y",  0)
-            .style("text-anchor", "middle")
-            .text("Speed vs Lean Angle");
+//        graph.append("text")
+//            .attr("x",  w / 2)
+//            .attr("y",  0)
+//            .style("text-anchor", "middle");
 
         var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
         graph.append("svg:g")
@@ -257,20 +259,21 @@ function drawGraph(data, type) {
             .attr("x",  w / 2)
             .attr("y",  h + m[0] / 2)
             .style("text-anchor", "middle")
-            .text("Turn Radius (m)");
+            .text("Turn Radius (m)")
+            .attr("class","side-label");
 
         graph.append("text")
             .attr("x",  -w / 4)
             .attr("y",  -h / 4)
             .attr("transform", "rotate(-90)")
             .style("text-anchor", "middle")
-            .text("Lean Angle (\xB0)");
+            .text("Lean Angle (\xB0)")
+            .attr("class","side-label");
 
         graph.append("text")
             .attr("x",  w / 2)
             .attr("y",  0)
-            .style("text-anchor", "middle")
-            .text("Turn Radius vs Lean Angle");
+            .style("text-anchor", "middle");
 
         var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
         graph.append("svg:g")
@@ -297,20 +300,21 @@ function drawGraph(data, type) {
             .attr("x",  w / 2)
             .attr("y",  h + m[0] / 2)
             .style("text-anchor", "middle")
-            .text("Lean Angle (\xB0)");
+            .text("Lean Angle (\xB0)")
+            .attr("class","side-label");
 
         graph.append("text")
             .attr("x",  -w / 4)
             .attr("y",  -h / 4)
             .attr("transform", "rotate(-90)")
             .style("text-anchor", "middle")
-            .text("Friction");
+            .text("Friction")
+            .attr("class","side-label");
 
         graph.append("text")
             .attr("x",  w / 2)
             .attr("y",  0)
-            .style("text-anchor", "middle")
-            .text("Friction vs Lean Angle");
+            .style("text-anchor", "middle");
 
         var yAxisLeft = d3.svg.axis().scale(y).ticks(4).orient("left");
         graph.append("svg:g")
