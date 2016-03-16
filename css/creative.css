@@ -277,6 +277,19 @@ header .header-content .header-content-inner p {
     background-size: cover;
     -o-background-size: cover;
 }
+#graphs{
+    position: relative;
+    width: 100%;
+    min-height: auto;
+    text-align: center;
+    color: #fff;
+    background-image: url(../img/lastBG.jpg);
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
 
 
 #math p {
@@ -324,7 +337,7 @@ canvas{
 
 
 
-    #math, #pickTrack, #assumption, #Result, #physics   {
+    #math, #pickTrack, #assumption, #Result, #physics, #graphs   {
         min-height: 100%;
     }
 

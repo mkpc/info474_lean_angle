@@ -266,10 +266,12 @@
         <div class="container">
             <div class="row text-center">
                 <div class="col-lg-6">
-                    <img id="map" height="500" align="center" usemap="#trackmap" width="auto" src="img/track.png">
+                    <img id="map" height="500" align="center" usemap="#trackmap" width="auto" src="img/track.jpg">
                     <map name="trackmap" id="ImageMapsCom-image-maps-2016-03-12-180608">
-                        <area ng-click="func(376,79)" id="curve4" alt="Curve4 <br> Turn radius : 376 feet<br> Average speed : 79 MPH " class="area" shape="rect" coords="433,162,538,289" />
-                        <area ng-click="func(109.44,46)"id="curve5" alt="Curve5<br> Turn radius : 109.44 feet<br> Average speed : 46 MPH " class="area" shape="rect" coords="237,350,343,484" />
+                        <area class="area" ng-click="func(109.44,46)" id="curve5" alt="Curve5 <br> Turn radius : 109.44 feet<br> Average speed : 46 MPH " shape="rect" coords="237,350,343,484" />
+                        <area class="area" ng-click="func(376,79)" id="curve4" alt="Curve4 <br> Turn radius : 376 feet<br> Average speed : 79 MPH " shape="rect" coords="434,190,534,289"/>
+                        <area class="area" ng-click="func(93,44)" id="curve11" alt="Curve11 <br> Turn radius : 93 feet<br> Average speed : 44 MPH " shape="rect" coords="297,248,392,348" />
+                        <area class="area" ng-click="func(125,60)" id="curve9" alt="Curve9 <br> Turn radius :125 feet<br> Average speed : 60 MPH"  shape="rect" coords="34,280,129,379"/>
                     </map>
                 </div>
                 <div class="col-lg-6">
@@ -277,14 +279,10 @@
                     <h3>The average speed of this turn is {{speedMPH}} MPH!</h3>
                     <h3>The maximum lean angle for this turn is </h3><h1>{{total()}} &#176;</h1>
                     <br>
-
-
                     <a href="#math" class="btn btn-primary btn-xl wow tada page-scroll">Click here to manually input Speed and Turn radius !</a>
                 </div>
             </div>
         </div>
-
-    </div>
     </div>
 </section>
 <section id="math" >
@@ -327,9 +325,8 @@
                 </div>
             </div>
             <br>
-            <a id="search" href="#animation" class="btn btn-primary btn-xl ">Let's see the simulation !</a>
-            <a href="#graphs" class="btn btn-default btn-xl wow tada page-scroll">Let's see the graphs !</a>
-            <!--<a href="#takeAways" class="btn btn-primary btn-xl wow tada page-scroll">What does that means ?</a>-->
+            <a id="search" href="#animation" class="btn btn-primary btn-xl ">Lean angle simulation</a>
+            <a href="#graphs" class="btn btn-default btn-xl wow tada page-scroll">Graph representation </a>
         </div>
     </div>
 </section>
@@ -339,17 +336,17 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 text-center">
                 <H1>Speed vs Lean Angle</H1>
+                <h4>Turn radius at {{radianFeet}} Feet</h4>
                 <div class="graph" id="graph"></div>
             </div>
             <div class="col-lg-6 col-md-6 text-center">
                 <H1>Turn Radius vs Lean Angle</H1>
+                <h4>Speed at {{speedMPH}} MPH</h4>
                 <div class="graph" id="graph2"></div>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-2 col-md-6 text-center">
-            </div>
-            <div class="col-lg-8 col-md-6 text-center">
+            <div class="col-lg-offset-2 col-lg-8 col-md-6 text-center">
                 <H1>Friction vs Lean Angle</H1>
                 <div  class="graph" id="graph3"></div>
             </div>
@@ -423,8 +420,8 @@ MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
 <script src="js/motorcycle.js"></script>
 <!--Custom Theme JavaScript-->
 <<<<<<< Updated upstream
-    
-    
+
+
 =======
 
 

@@ -48,6 +48,9 @@ app.controller('myCtrl', function($scope) {
         if(parseInt($scope.speedMPH)<=200 && parseInt($scope.speedMPH)>=0){
             g.refresh(parseInt($scope.speedMPH));
         }
+        calculateSpeedGraph($scope.speedMPH, $scope.radianFeet);
+        calculateRadianGraph($scope.speedMPH, $scope.radianFeet);
+        calculateTangentGraph();
 
         speed = convertToMPS(parseFloat($scope.speedMPH));
         radian = convertToMeter(parseFloat($scope.radianFeet));
