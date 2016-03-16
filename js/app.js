@@ -81,8 +81,8 @@ $('area').each(function()
                 height: 400
             },
             position: {
-                my: 'right bottom',
-                at: 'bottom left',
+                my: 'bottom center',
+                at: 'top center',
                 target: $(this)
             },
 
