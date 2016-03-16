@@ -36,7 +36,7 @@
 	fill: rgba(255,255,255,.7);
 }
 
-@media (max-height: 900px ) {
+@media (max-height: 800px ) {
         p {
         margin-bottom: 20px;
         font-size: 1em !important;
