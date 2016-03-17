@@ -151,7 +151,7 @@ function convertToMPS(mph) {
 
 function calculateRadianGraph(speed, radian) {
     var radianArray = [];
-    for (var i = 0; i < 300; i++) {
+    for (var i = 0; i < 500; i++) {
         var radianLeanAngle = calculateLeanAngle(parseInt(speed), parseInt(i));
         var radianAngle = convertToDegrees(radianLeanAngle);
         radianArray.push(radianAngle);
@@ -162,7 +162,7 @@ function calculateRadianGraph(speed, radian) {
 
 function calculateSpeedGraph(speed, radian) {
     var speedArray = [];
-    for (var i = 0; i < 100; i++) {
+    for (var i = 0; i < 200; i++) {
         var speedLeanAngle = calculateLeanAngle(parseInt(i), parseInt(radian));
         var speedAngle = convertToDegrees(speedLeanAngle);
         speedArray.push(speedAngle);
