@@ -69,7 +69,7 @@ app.controller('myCtrl', function($scope) {
     };
     
     $scope.modalTitle = function(){
-        var title = leanAngle > 64 ?"Oh no! It will creash..." : "Yay, it can make the turn!!";
+        var title = leanAngle > 64 ?"Oh no! It will crash..." : "Yay, it can make the turn!!";
         return title;
     }
     $scope.message = function(){
