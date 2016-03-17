@@ -259,7 +259,7 @@ function drawGraph(data, type) {
             .attr("x",  w / 2)
             .attr("y",  h + m[0] / 2)
             .style("text-anchor", "middle")
-            .text("Turn Radius (m)")
+            .text("Turn Radius (feet)")
             .attr("class","side-label");
 
         graph.append("text")
