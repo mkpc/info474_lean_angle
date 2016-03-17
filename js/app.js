@@ -67,7 +67,16 @@ app.controller('myCtrl', function($scope) {
     $scope.radianSvg =function() {
         return parseInt($scope.radianFeet/10);
     };
-
+    
+    $scope.modalTitle = function(){
+        var title = leanAngle > 64 ?"Oh no! It will creash..." : "Yay, it can make the turn!!";
+        return title;
+    }
+    $scope.message = function(){
+        var message = "According to MotoGP, the top motorcycle competition in the world, the record of the maximum lean angle that we can lean is about 64 degree. Your lean angle is ";
+        message += leanAngle + (leanAngle > 64 ?" exceeded the maximum lean angle, so you will be about going to crushed..." : " less than the maximum lean angle, which means you make the turn no problem.");
+        return message;
+    }
 
 });
 
@@ -89,4 +98,3 @@ $('area').each(function()
 
         });
 });
-

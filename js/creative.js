@@ -30,20 +30,20 @@
     // Fit Text Plugin for Main Header
     $("h1").fitText(
         1.2, {
-            minFontSize: '35px',
-            maxFontSize: '65px'
+            minFontSize: '25px',
+            maxFontSize: '45px'
         }
     );
 
     // Offset for Main Navigation
     $('#mainNav').affix({
         offset: {
-            top: 100
+            top: 51
         }
     });
 
     // Initialize WOW.js Scrolling Animations
-    new WOW().init();
+//    new WOW().init();
 
 
 

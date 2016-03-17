@@ -43,16 +43,39 @@
         line-height: 1;
     }
     
-    .fa-4x, .formula{
+    .fa-4x, .formula, .NeedToHide{
         display: none !important;
     }
     
 
 }
 
-@media (max-width: 1200px){
+@media (min-width: 768px){
     .fa-4x, .formula{
         display: none !important;
     }
+    .header-content{
+        padding: 0;
+    }
 }
+
+@media (min-width: 992px){
+    .container {
+        width: 1089px !important;
+    }
     
+}
+
+    
+.modal-content {
+    background-color:azure;
+}
+
+.modal-content h5 {
+        font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif !important;
+        font-size: 16px;
+}
+
+.affix-top{
+    margin-right: 30px;
+}
